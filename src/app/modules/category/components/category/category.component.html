@@ -1,0 +1,83 @@
+<mat-card class="mat-mb-4">
+  <h2 class="alinear">Listado de Categorias</h2>
+  <mat-card-header>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <mat-form-field hintLabel="Busque categorias" appearance="fill">
+        <mat-label>Buscar Categorias</mat-label>
+        <input matInput #input>
+      </mat-form-field>
+    </div>
+  </mat-card-header>
+
+  <mat-card-header>
+    <div class="right">
+      <ul>
+        <li>
+          <button mat-raised-button color="accent">Agregar Categoría</button>
+        </li>
+      </ul>
+    </div>
+  </mat-card-header>
+  <hr>
+
+  <div >
+  <table mat-table [dataSource]="dataSource" *ngIf="dataSource.data.length" class="my-table">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fchIn">
+      <th mat-header-cell *matHeaderCellDef> Fecha de Ingreso </th>
+      <td mat-cell *matCellDef="let element"> {{element.fchIn}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="productoAlmacen">
+      <th mat-header-cell *matHeaderCellDef> Nombre del producto </th>
+      <td mat-cell *matCellDef="let element"> {{element.productoAlmacen}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="proveedorAlmacen">
+      <th mat-header-cell *matHeaderCellDef> Proveedor </th>
+      <td mat-cell *matCellDef="let element"> {{element.proveedorAlmacen}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="color">
+      <th mat-header-cell *matHeaderCellDef> Color </th>
+      <td mat-cell *matCellDef="let element"> {{element.color}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="observaciones">
+      <th mat-header-cell *matHeaderCellDef> Observaciones </th>
+      <td mat-cell *matCellDef="let element"> {{element.observaciones}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="caracteristicas">
+      <th mat-header-cell *matHeaderCellDef> Caracteristicas </th>
+      <td mat-cell *matCellDef="let element"> {{element.caracteristicas}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cantidadAlmacen">
+      <th mat-header-cell *matHeaderCellDef> Cantidad Almacen </th>
+      <td mat-cell *matCellDef="let element"> {{element.cantidadAlmacen}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="precioUnitario">
+      <th mat-header-cell *matHeaderCellDef> Precio Unitario </th>
+      <td mat-cell *matCellDef="let element"> {{element.precioUnitario}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="valorTotalProductoAlmacen">
+      <th mat-header-cell *matHeaderCellDef> Valor de producto en Almacen </th>
+      <td mat-cell *matCellDef="let element"> {{element.valorTotalProductoAlmacen}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+  </table>
+  </div>
+</mat-card>
+
